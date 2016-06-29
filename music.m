@@ -84,7 +84,7 @@ Rxx=(Rxx1+Rxx2+Rxx3+Rxx4+Rxx5)./5;    %输出信号相关矩阵
 Vs=U(:,1:Source_N);            %信源子空间
 Vn=U(:,Source_N+1:Array_N);      %噪声子空间，Array_N=4
 %******************************第三部分：求空间谱****************************% 
-for pitch=0%for pitch=1:180
+
 for azimuth= 0:90%=1:180
 % AA=[1;exp(-j*2*pi*pinlv*Array_Len*sin(azimuth*Degrad)*cos(pitch*Degrad)/c);
   AA=[1;exp(-j*2*pi*pinlv*Array_Len*sin(azimuth*Degrad)/c);
@@ -100,7 +100,7 @@ WW=AA'*Vn*Vn'*AA;
  %Pmusic(1,azimuth)=abs(8./WW);
 % Pmusic(1,pitch)=abs(8./WW);  
 end %for azimuth=1:180
-end %for pitch=0%pitch=1:180
+
  PmusicSum=PmusicSum+Pmusic;                                %空间谱求和         
  end% for FreIndx=Start_Fre_Point:Fre_Step:End_Fre_Point     %选取频率点 
 
